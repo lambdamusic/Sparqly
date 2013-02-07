@@ -13,14 +13,14 @@ The main file is a genetic wrapper for any sparql endpoints, providing 4 main me
 Furthemore, there are two specializations of the main sparql wrapper: nature.py and dbpedia.py. 
 These are like 'plugins' that embed special behaviour for specific endpoints.
 
-Dependencies:
+####Dependencies:
 Sparqly relies on sparql-wrapper, which itseld depends on rdflib. Install both of them using `easy_install`.
 
 - http://sparql-wrapper.sourceforge.net/
 - https://github.com/RDFLib
 
 
-Credits: 
+####Credits: 
 Sparqly main library is based on code found here: http://terse-words.blogspot.co.uk/2012/01/get-real-data-from-semantic-web.html
 I just added a few more methods for sparql queries, parametrized the format for the results set etc..
 
@@ -43,7 +43,7 @@ Todo:
 ChangeLog:
 -----------------------------------------
 
-7/2/13
+####7/2/13
 
 - added command line handlers
 - added a parameter for convert() [by defaults it's True]
