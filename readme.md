@@ -1,19 +1,28 @@
-
 Intro
 -----------------------------------------
-Sparqly is a small library for querying sparql endpoint from the command line using python. This is a simple SPARQL interface that relies on sparql-wrapper. 
+Sparqly is a small python library for querying SPARQL endpoints. It can be used from the command line or as a module in other python applications. 
 
-The idea is to facilitate accessing common sparql endpoints, in a pythonic fashion. To this end, there are a couple of 'plugins' (effectively, subclasses of sparqly) that embed special behaviour for specific endpoints. At this, stage, only the Nature and DBPedia endpoints. 
+The idea is to make it easy to access sparql endpoints, in a pythonic way. 
 
+The main file is a genetic wrapper for any sparql endpoints, providing 4 main methods:
+- `query`: accepts a generic query as a string
+- `ontology`: queries for all owl:Classes
+- `describe`: a describe query for a specific URI
+- `alltriples`: a query that returns all the triples mentioning a specific URI
 
-Dependencies: 
-http://sparql-wrapper.sourceforge.net/
-https://github.com/RDFLib
+Furthemore, there are two specializations of the main sparql wrapper: nature.py and dbpedia.py. 
+These are like 'plugins' that embed special behaviour for specific endpoints.
+
+Dependencies:
+Sparqly relies on sparql-wrapper, which itseld depends on rdflib. Install both of them using `easy_install`.
+
+- http://sparql-wrapper.sourceforge.net/
+- https://github.com/RDFLib
 
 
 Credits: 
-Sparqly main library is partially based on code found here: http://terse-words.blogspot.co.uk/2012/01/get-real-data-from-semantic-web.html
-I just added a few methods for other sparql queries, parametrized the format for the results set etc..
+Sparqly main library is based on code found here: http://terse-words.blogspot.co.uk/2012/01/get-real-data-from-semantic-web.html
+I just added a few more methods for sparql queries, parametrized the format for the results set etc..
 
 
 
@@ -22,7 +31,7 @@ I just added a few methods for other sparql queries, parametrized the format for
 Todo:
 -----------------------------------------
 - keep on adding queries specific to nature...
-- check support for RDF/XML
+- check support for RDF/XML, TURTLE, N3..
 
 
 
@@ -37,10 +46,8 @@ ChangeLog:
 7/2/13
 
 - added command line handlers
-
 - added a parameter for convert() [by defaults it's True]
-
-- Added support for JSON and XML formats. Missing TURTLE, N3, RDF [?]
+- Added support for JSON and XML formats.
 
 
 
