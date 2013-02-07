@@ -1,4 +1,23 @@
 
+Intro
+-----------------------------------------
+Sparqly is a small library for querying sparql endpoint from the command line using python. This is a simple SPARQL interface that relies on sparql-wrapper. 
+
+The idea is to facilitate accessing common sparql endpoints, in a pythonic fashion. To this end, there are a couple of 'plugins' (effectively, subclasses of sparqly) that embed special behaviour for specific endpoints. At this, stage, only the Nature and DBPedia endpoints. 
+
+
+Dependencies: 
+http://sparql-wrapper.sourceforge.net/
+https://github.com/RDFLib
+
+
+Credits: 
+Sparqly main library is partially based on code found here: http://terse-words.blogspot.co.uk/2012/01/get-real-data-from-semantic-web.html
+I just added a few methods for other sparql queries, parametrized the format for the results set etc..
+
+
+
+
 
 Todo:
 -----------------------------------------
