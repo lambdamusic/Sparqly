@@ -3,7 +3,7 @@
 
 
 """
-Based on from http://terse-words.blogspot.co.uk/2012/01/get-real-data-from-semantic-web.html
+Based on code from http://terse-words.blogspot.co.uk/2012/01/get-real-data-from-semantic-web.html
 
 
 ##################
@@ -190,8 +190,10 @@ def main():
 
 	if format == "JSON":
 		results = results["results"]["bindings"]
-		for l in results:
-			print l
+		for d in results:
+			for k, v in d.iteritems():
+				print "[%s] %s=> %s" % (k, v['type'],v['value'])
+			print "----"
 	elif format == "XML":
 		print results.toxml()
 	else:

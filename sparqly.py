@@ -148,10 +148,15 @@ class SparqlEndpoint(object):
 		Get all triples for a URI TODO: expand with union where URI is both predicate and object
 		"""
 
+		if resource_uri.startswith("http://"):
+			resource_uri = "<%s>" % resource_uri
+		else:  # it's a QName
+			pass
+
 		lines = ["PREFIX %s: <%s>" % (k, r) for k, r in self.prefixes.iteritems()]
 		q =  """
 			SELECT *
-			WHERE { <%s> ?pred ?obj . }""" % resource_uri
+			WHERE { %s ?pred ?obj . }""" % resource_uri
 
 		lines.extend([q])
 		query = "\n".join(lines)
@@ -288,12 +293,16 @@ def main():
 
 	if format == "JSON":
 		results = results["results"]["bindings"]
-		for l in results:
-			print l
+		for d in results:
+			for k, v in d.iteritems():
+				print "[%s] %s=> %s" % (k, v['type'],v['value'])
+			print "----"
 	elif format == "XML":
 		print results.toxml()
 	else:
 		print results
+
+
 
 
 	# print some stats.... 
