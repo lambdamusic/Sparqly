@@ -46,7 +46,7 @@ AGENT = "%s/%s" % (__name__, __version__)
 
 class DBpediaEndpoint(SparqlEndpoint):
     
-    def __init__(self, prefixes = {}):
+    def __init__(self, prefixes={}, verbose=True):
         endpoint = "http://dbpedia.org/sparql"
 
         prefixes = {
@@ -55,7 +55,7 @@ class DBpediaEndpoint(SparqlEndpoint):
             "dbpedia": "http://dbpedia.org/",
         }
 
-        super(DBpediaEndpoint, self).__init__(endpoint, prefixes)
+        super(DBpediaEndpoint, self).__init__(endpoint, prefixes, verbose=True)
 
 
 

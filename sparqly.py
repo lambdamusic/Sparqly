@@ -83,7 +83,7 @@ class SparqlEndpoint(object):
 
 	"""
  
-	def __init__(self, endpoint, prefixes={}):
+	def __init__(self, endpoint, prefixes={}, verbose=True):
 		self.sparql = SPARQLWrapper(endpoint)
 		self.prefixes = {
 
@@ -98,6 +98,7 @@ class SparqlEndpoint(object):
 			"xsd": "http://www.w3.org/2001/XMLSchema#",
 		}
 		self.prefixes.update(prefixes)
+		self.verbose = verbose
 		self.format = ""  # dynamically assigned at query time
 		self.endpoint = endpoint  # just for caching it
 
@@ -113,10 +114,13 @@ class SparqlEndpoint(object):
 		If convert is False, we return the collection of rdflib instances
 
 		"""
+		
 		lines = ["PREFIX %s: <%s>" % (k, r) for k, r in self.prefixes.iteritems()]
 		lines.extend(q.split("\n"))
 		query = "\n".join(lines)
-		print query, "\n\n" 
+
+		if self.verbose:
+			print query, "\n\n" 
 
 		return self.__doQuery(query, format, convert)		
 
@@ -136,7 +140,10 @@ class SparqlEndpoint(object):
 		else:  # it's a shortened uri 
 			lines.extend(["DESCRIBE %s" % uri])
 		query = "\n".join(lines)
-		print query, "\n\n" 
+
+
+		if self.verbose:
+			print query, "\n\n" 
 
 		return self.__doQuery(query, format, convert)
 
@@ -160,7 +167,10 @@ class SparqlEndpoint(object):
 
 		lines.extend([q])
 		query = "\n".join(lines)
-		print query, "\n\n" 
+
+
+		if self.verbose:
+			print query, "\n\n" 
 
 
 		return self.__doQuery(query, format, convert)	
@@ -179,7 +189,10 @@ class SparqlEndpoint(object):
 
 		lines.extend([q])
 		query = "\n".join(lines)
-		print query, "\n\n" 
+
+
+		if self.verbose:
+			print query, "\n\n" 
 
 
 		return self.__doQuery(query, format, convert)	

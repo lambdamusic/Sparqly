@@ -43,6 +43,11 @@ Todo:
 ChangeLog:
 -----------------------------------------
 
+
+####19/3/13
+- Added verbose option
+
+
 ####7/2/13
 
 - added command line handlers
