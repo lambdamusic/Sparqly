@@ -62,7 +62,7 @@ ChangeLog:
 
 Example (command line)
 -----------------------
-```python
+```bash
 	# getting all classes from the British Museum sparql endpoint
 	[user]:~/code/python/semweb/sparqly>python sparqly.py http://collection.britishmuseum.org/Sparql -q "select ?x where {?x a rdfs:Class}"
 	Contacting http://collection.britishmuseum.org/Sparql ... 
