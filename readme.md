@@ -62,7 +62,7 @@ ChangeLog:
 
 Example (command line)
 -----------------------
-
+```python
 	# getting all classes from the British Museum sparql endpoint
 	[user]:~/code/python/semweb/sparqly>python sparqly.py http://collection.britishmuseum.org/Sparql -q "select ?x where {?x a rdfs:Class}"
 	Contacting http://collection.britishmuseum.org/Sparql ... 
@@ -356,7 +356,7 @@ Example (command line)
 	Stats:	   (15/s after 1.10s)
 	[user]:~/code/python/semweb/sparqly>
 
-
+```
 
 
 
@@ -367,7 +367,7 @@ Example (command line)
 Example (python)
 -----------------------
 
-
+```python
 	In [1]: from sparqly import *
 
 	In [2]: s = SparqlEndpoint("http://data.nature.com/sparql")
@@ -690,4 +690,4 @@ Example (python)
 	 'set-cookie': 'BIGipServerjetty-external=rd1o00000000000000000000ffff0a0101cbo80; expires=Thu, 07-Feb-2013 17:35:51 GMT; path=/',
 	 'x-cerberus-query-processing-time': '0.282',
 	 'x-cerberus-version-number': '1.4.0'}
-
+```
